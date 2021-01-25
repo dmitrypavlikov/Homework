@@ -14,7 +14,10 @@ public class consoleHelper {
         System.out.println(message);
     }
 
-    private consoleHelper() {};
-    private static consoleHelper instance = new consoleHelper();
+    private consoleHelper() {}
 
+    private static final consoleHelper instance = new consoleHelper();
+    public static consoleHelper getInstance() {
+        return instance;
+    }
 }
