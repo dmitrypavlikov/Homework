@@ -1,5 +1,5 @@
 public class myMath {
-    private myMath(){}
+    public myMath(){}
     private static final myMath instance = new myMath();
     public static myMath getInstance(){
         return instance;
@@ -17,9 +17,6 @@ public class myMath {
             n = n * i;
         }
         return n;
-    }
-    public void myMathInfo(){
-        System.out.println("It works!");
     }
 
 }
