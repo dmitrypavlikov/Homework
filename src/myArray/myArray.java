@@ -25,17 +25,31 @@ public class myArray {
         this.contain = false;
 
     }
+    public int size(){
+        return size;
+    }
 
+    private void expend(){
+        this.reservedSize += reservedSize / 2;
+        int tmp[] = new int[reservedSize];
+        for(int i = 1; i<size; i++){
+            tmp[i] = this.data[i];
+        }
+        this.data = tmp;
+    }
     public void add(int value){
         data[size] = value;
         size++;
         isEmpty = false;
+        if(size+1 == this.reservedSize){
+        expend();}
     }
 
     public void add(int index, int value){
         data[size] = value;
         size++;
         isEmpty = false;
+        expend();
     }
 
     public int get(int index){
@@ -54,5 +68,30 @@ public class myArray {
         }
         return contain;
     }
+
+    public void delete(int index){
+
+    }
+
+    public void sort(int arg){
+        boolean isMoved = false;
+        if(arg == 0){
+            for(int i = 0; i<size; i++){
+             for(int j =0; j < size-1; j++){
+                if(data[j] < data[j+1]){
+                    int tmp = data[j+1];
+                    data[j + 1] = data[j];
+                    data[j] = tmp;
+                    isMoved = true;
+                }
+             }
+             if(isMoved){
+                 break;
+                }
+            }
+        }
+    }
+
+
 
 }
