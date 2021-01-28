@@ -6,23 +6,18 @@ public class myArray {
     private int[] data;
     private int size;
     private int reservedSize;
-    private boolean isEmpty;
-    private boolean contain;
+
 
     public myArray(){
         this.size = 0;
         this.reservedSize = 10;
         this.data = new int[reservedSize];
-        this.isEmpty = true;
-        this.contain = false;
     }
 
     public myArray(int reservedSize) {
         this.reservedSize = reservedSize;
         this.size = 0;
         this.data = new int[reservedSize];
-        this.isEmpty = true;
-        this.contain = false;
 
     }
     public int size(){
@@ -31,7 +26,7 @@ public class myArray {
 
     private void expend(){
         this.reservedSize += reservedSize / 2;
-        int tmp[] = new int[reservedSize];
+        int[] tmp = new int[reservedSize];
         for(int i = 1; i<size; i++){
             tmp[i] = this.data[i];
         }
@@ -40,7 +35,6 @@ public class myArray {
     public void add(int value){
         data[size] = value;
         size++;
-        isEmpty = false;
         if(size+1 == this.reservedSize){
         expend();}
     }
@@ -48,7 +42,6 @@ public class myArray {
     public void add(int index, int value){
         data[size] = value;
         size++;
-        isEmpty = false;
         expend();
     }
 
@@ -56,21 +49,40 @@ public class myArray {
         return data[index];
     }
 
-    public boolean isEmpty(){
-        return isEmpty;
+    public boolean contains(int value) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == value) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public boolean contains(int x){
-        contain = false;
-        for(int i = 0; i < size;i++){
-            contain = (data[i] == x ? true : false);
-
+    public boolean isEmpty() {
+        if (size == 0) {
+            return true;
         }
-        return contain;
+        return false;
     }
 
     public void delete(int index){
+        int[] tmp = new int[reservedSize];
+        this.size -= 1;
+        for(int i = 0; i<size; i++) {
+        if(index > i){
+                tmp[i] = this.data[i];
+            }
+        else{
+            tmp[i] = this.data[i+1];
+            }
+        }
+        this.data = tmp;
+    }
 
+    public void show(){
+        for(int i = 0; i< size; i++){
+            System.out.println(data[i]);
+        }
     }
 
     public void sort(int arg){
