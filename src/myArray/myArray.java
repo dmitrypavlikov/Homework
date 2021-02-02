@@ -85,6 +85,46 @@ public class myArray {
         }
     }
 
+    public void reverse(){
+        for(int i =0; i<size / 2; i++){
+            int tmp = data[i];
+            data[i] = data[size - i -1];
+            data[size - i - 1] = tmp;
+        }
+    }
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        for(int i = 0; i < size; i++){
+            if(i == 0){
+                str.append("[" + data[i] + " ");
+            }
+            else if(i == size-1){
+                str.append(data[i] + "]");
+            }
+            else{
+            str.append(data[i] + " ");
+            }
+        }
+        return str.toString();
+    }
+
+    public boolean equals(Object obj){
+        myArray compare = (myArray) obj;
+        if(this == obj) {
+            return true;
+        }
+        else if(this.size != compare.size){
+            return false;
+        }
+        else{
+            for(int i = 0; i < size; i++){
+                if(data[i] != compare.data[i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     public void sort(int arg){
         boolean isMoved = false;
         if(arg == 0){
