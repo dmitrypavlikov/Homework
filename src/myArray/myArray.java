@@ -37,11 +37,10 @@ public class myArray {
         expend();}
     }
 
-    public void add(int index, int value){
-        data[size] = value;
-        size++;
-        expend();
+    public void set(int value, int index){
+        data[index] = value;
     }
+
 
     public int get(int index){
         return data[index];
@@ -123,24 +122,24 @@ public class myArray {
         }
         return true;
     }
-    public void sort(int arg){
+    public void sort() {
         boolean isMoved = false;
-        if(arg == 0){
-            for(int i = 0; i<size; i++){
-             for(int j =0; j < size-1; j++){
-                if(data[j] < data[j+1]){
-                    int tmp = data[j+1];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - 1; j++) {
+                if (data[j] > data[j + 1]) {
+                    int tmp = data[j + 1];
                     data[j + 1] = data[j];
                     data[j] = tmp;
                     isMoved = true;
                 }
-             }
-             if(isMoved){
-                 break;
-                }
+            }
+            if (isMoved) {
+                break;
             }
         }
     }
+
 
 
 
