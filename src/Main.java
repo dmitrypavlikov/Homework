@@ -15,8 +15,14 @@ public class Main {
         array.add(4);
         array.add(5);
 
-        int[] mass = {1,2,3,4,5};
-        System.out.println(array.equals(mass));
+        myArray array2 = new myArray();
+        array2.add(1);
+        array2.add(2);
+        array2.add(3);
+        array2.add(4);
+        array2.add(5);
+
+       System.out.println(array.equals(array2));
         //array.show();
        // System.out.println(array.size());
        // array.delete(2);

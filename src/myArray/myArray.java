@@ -1,7 +1,5 @@
 package myArray;
 
-import java.util.Objects;
-
 public class myArray {
     private int[] data;
     private int size;
@@ -109,6 +107,7 @@ public class myArray {
     }
 
     public boolean equals(Object obj){
+        myArray tmp = (myArray) obj;
         myArray compare = (myArray) obj;
         if(this == obj) {
             return true;
@@ -116,8 +115,7 @@ public class myArray {
         else if(this.size != compare.size){
             return false;
         }
-        else{
-            for(int i = 0; i < size; i++){
+        else{ for(int i = 0; i < size; i++){
                 if(data[i] != compare.data[i]){
                     return false;
                 }
