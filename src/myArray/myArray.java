@@ -43,6 +43,9 @@ public class myArray {
 
 
     public int get(int index){
+        if(index >= size){
+            throw new IndexOutOfBoundsException();
+        }
         return data[index];
     }
 
