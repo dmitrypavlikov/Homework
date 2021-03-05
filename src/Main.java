@@ -18,6 +18,7 @@ public class Main {
      Processor Processor = new Processor();
      Processor.move(LeftHand);
      Processor.move(RightLeg);
+     Processor.move(RightHand);
 
 
 
